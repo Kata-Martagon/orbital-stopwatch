@@ -5,10 +5,10 @@ test( 'if it hasnt started working it will display 0 for all the values', functi
   assert.equal(actual, expected, 'returned 0' );
 });
 
-test( 'if the function has cycled once, it will return 1 the next time', function(assert) {
-  var actual = run() > 0;
-  assert.ok(actual, 'returned 1' );
-});
+// test( 'if the function has cycled once, it will return 1 the next time', function(assert) {
+//   var actual = run() > 0;
+//   assert.ok(actual, 'returned 1' );
+// });
 
 // test( 'start calls the run function', function(assert) {
 //   start();
@@ -43,7 +43,7 @@ test( 'function setTimeout is called after other tests', function(assert) {
 var dummy = true;
 
   document.getElementById("start").click();
-  var timeOut = setTimeout(testCont, 2000);
+  var timeOut = setTimeout(testCont, 100);
 
   function testCont() {
     test( 'Start runs continously', function(assert) {
@@ -68,7 +68,7 @@ function runTest() {
 
   document.getElementById("pause").click();
   var expected = increment;
-  var timeOut = setTimeout(testPause, 2000);
+  var timeOut = setTimeout(testPause, 100);
 
   function testPause () {
     test( 'pause button stops it from incrementing', function(assert) {
