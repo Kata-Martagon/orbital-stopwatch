@@ -23,7 +23,9 @@ test( 'Reset resets run to 0', function(assert) {
   var expected = 0;
   assert.equal(actual, expected, 'reset, reset to 0');
 });
-//
+
+
+// 
 // test( 'start button called start with a click', function(assert) {
 //   document.getElementById("start").click();
 //   var actual = increment > 0;
@@ -77,7 +79,7 @@ function runTest() {
     });
   };
 
-};
+}
 
 assert.ok(dummy, 'called after other tests');
 });
@@ -87,11 +89,3 @@ test( 'if running displays as time - hours, minutes, seconds, milliseconds', fun
   var expected = 0;
   assert.equal(actual, expected, 'returned 0' );
 });
-
-
-// test( 'new Date function works as well as increment++', function(assert) {
-//   reset();
-//   start();
-//   var actual = increment > 0;
-//   assert.ok(actual, 'new Date works!');
-// });
