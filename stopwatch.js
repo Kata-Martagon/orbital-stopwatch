@@ -44,10 +44,7 @@ var objTime = {
    this.time = this.hours + ':' + this.minutes + ':' + this.seconds + ':' + this.hundredths;
 },
 resetTime: function(value){
-  this.hundredths = value;
-  this.seconds = value;
-  this.minutes = value;
-  this.hours = value;
+  this.updateDisplay(value);
 }
 };
 
