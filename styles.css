@@ -1,11 +1,46 @@
 body {
   background-color: black;
-  font-family: monospace;
+  font-family: 'Orbitron', sans-serif;
   color: white;
 }
 
-#stopwatch {
-  width: 200px;
-  height: 100px;
-  border: 1px solid white;
+.buttons #start, #pause, #reset{
+  font-size: 1vw;
+  color: white;
+  		cborder: 1px outset blue;
+   background-color: black;
+   border-color: white;
+   height:50px;
+   width:460px;
+   cursor:pointer;
 }
+
+
+#updateDisplay {
+  width: 120px;
+  height: 800px;
+  font-size: 20.5vw;
+  line-height: 820px;
+  color: white;
+  display: inline-block;
+  0%{
+-webkit-transform: scale(1.2,3); /* Safari and Chrome */
+-moz-transform:scale(1.2,3); /* Firefox */
+-ms-transform:scale(1.2,3); /* IE 9+ */
+-o-transform:scale(1.2,3); /* Opera */
+}
+}
+
+/*.tests {
+
+}
+
+@-webkit-keyfames pulse {
+ 	0% {
+  	 	-webkit-transform: scale(1);
+ 	}
+
+ 	100% {
+   		-webkit-transform: scale(2);
+ 	}
+ }*/
