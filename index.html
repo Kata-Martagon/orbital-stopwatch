@@ -6,15 +6,21 @@
     <title>QUnit Example</title>
     <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.23.1.css">
     <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
-    <button id = "start">Start</button>
-    <button id = "pause">Pause</button>
-    <button id = "reset">Reset</button>
-    <canvas id="stopwatch"></canvas>
+    <div id="wrapper">
+    <div id= "updateDisplay"></div>
 
-    <h1>TESTS!</h1>
+    <div class="buttons">
+      <button id = "start">START</button>
+      <button id = "pause">PAUSE</button>
+      <button id = "reset">RESET</button>
+    </div>
+</div>
+
+    <div class= "tests"></div>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     <script src="https://code.jquery.com/qunit/qunit-1.23.1.js"></script>
