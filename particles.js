@@ -179,22 +179,30 @@ function render() {
   var secNow = nowDate.getSeconds();
   var minNow = nowDate.getMinutes();
   if ((Math.floor(milliNow / 10) !== Math.floor(milliPrev / 10)) && particleCount < 7500) {
-    newParticle(origins[0]);
-    milliPrev = milliNow;
-    particleCount++;
+    if (pause === 0) {
+      newParticle(origins[0]);
+      milliPrev = milliNow;
+      particleCount++;
+    }
   }
   if (Math.floor(tenthNow / 100) !== Math.floor(tenthPrev / 100)) {
-    newParticle(origins[1]);
-    tenthPrev = tenthNow;
+    if (pause === 0) {
+      newParticle(origins[1]);
+      tenthPrev = tenthNow;
+    }
   }
   if (Math.floor(secNow) !== Math.floor(secPrev)) {
-    newParticle(origins[2]);
-    secPrev = secNow;
-    minCount = ((minCount + 1) % 61);
+    if (pause === 0) {
+      newParticle(origins[2]);
+      secPrev = secNow;
+      minCount = ((minCount + 1) % 61);
+    }
   }
   if (minCount === 0){
-    newParticle(origins[3]);
-    minCount++
+    if (pause === 0) {
+      newParticle(origins[3]);
+      minCount++
+    }
   }
   drawParticles();
   drawOrigins();
@@ -218,4 +226,14 @@ var tenthPrev = currentdate.getMilliseconds();
 var secPrev = currentdate.getSeconds();
 var minCount = 1;
 var particleCount = 0;
+
+var pause = 0;
+
 run();
+
+document.body.addEventListener('click', function() {
+  if (pause === 0) {
+    pause = 1
+  }
+  else {pause = 0}
+});
