@@ -3,6 +3,38 @@ html, body {
   width:100vw;
 }
 
+* {
+  margin: 0; padding: 0;
+}
+
 #physics {
    background-color: #000000;
+}
+
+
+#changeViewButton {
+  position: fixed;
+  font-size: 50px;
+  z-index: 500;
+  right: 20px;
+  top: 15px;
+  background-color: black;
+  border-color: white;
+  padding: 7 0 7 7;
+  width: 58px;
+  height:58px;
+  line-height: 27px;
+
+}
+
+#link:hover {
+text-decoration: none;
+}
+
+#link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 40px;
+  text-align: center;
 }
