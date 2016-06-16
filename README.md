@@ -13,3 +13,6 @@ Using TDD ping pong we will methodiclly develop a functioning stopwatch. We can 
 Visual representation as sand timer/particle effect.
 Countdown Timer
 Look into p5.js - visual processing library.
+Emit particle for hundredths, seconds, minutesD
+Different colours for different particle emission frequencies
+Particle counter

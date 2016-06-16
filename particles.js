@@ -19,27 +19,39 @@ setOrigins();
 
 function setOrigins() {
 // Hundredth origin
-  var mass = 500;
-  var position = new Vector(midX, midY - 100);
-  var velocity = new Vector(1.5, 0);
+  var mass = 1000;
+  var position = new Vector(midX, midY - 250);
+  var velocity = new Vector(1.35, 0);
   var colour = 'rgb(122,214,245)';
-  var tempOrigin = new origin(mass, position, velocity, colour);
+  var scale = 1;
+  var tempOrigin = new origin(mass, position, velocity, colour, scale);
   origins.push(tempOrigin);
 
+// Tenth origin
+  var mass1 = 850;
+  var position1 = new Vector(midX, midY - 200);
+  var velocity1 = new Vector(1.35, 0);
+  var colour1 = 'rgb(124,252,0)';
+  var scale1 = 2;
+  var tempOrigin1 = new origin(mass1, position1, velocity1, colour1, scale1);
+  origins.push(tempOrigin1);
+
 // Second origin
-  var mass1 = 500;
+  var mass1 = 800;
   var position1 = new Vector(midX, midY - 150);
-  var velocity1 = new Vector(1.5, 0);
+  var velocity1 = new Vector(1.45, 0);
   var colour1 = 'rgb(249,230,6)';
-  var tempOrigin1 = new origin(mass1, position1, velocity1, colour1);
+  var scale1 = 3;
+  var tempOrigin1 = new origin(mass1, position1, velocity1, colour1, scale1);
   origins.push(tempOrigin1);
 
 // Minute Origin
-  var mass2 = 500;
-  var position2 = new Vector(midX, midY - 200);
-  var velocity2 = new Vector(1.5, 0);
+  var mass2 = 1200;
+  var position2 = new Vector(midX, midY - 100);
+  var velocity2 = new Vector(2.2, 0);
   var colour2 = 'rgb(97,12,232)';
-  var tempOrigin2 = new origin(mass2, position2, velocity2, colour2);
+  var scale2 = 4;
+  var tempOrigin2 = new origin(mass2, position2, velocity2, colour2, scale2);
   origins.push(tempOrigin2);
 }
 
@@ -52,12 +64,13 @@ for (var i = 0; i < 1; i++) {
   fixedMasses.push(tempFixedMass);
 }
 
-function particle(mass, position, velocity, acceleration, colour) {
+function particle(mass, position, velocity, acceleration, colour, scale) {
   this.mass = mass;
   this.position = position;
   this.velocity = velocity;
   this.acceleration = acceleration;
-  this.colour = colour
+  this.colour = colour;
+  this.scale = scale;
 }
 
 function Vector(x, y) {
@@ -70,11 +83,12 @@ Vector.prototype.add = function(vector) {
   this.y += vector.y;
 }
 
-function origin(mass, position, velocity, colour) {
+function origin(mass, position, velocity, colour, scale) {
   this.mass = mass;
   this.position = position;
   this.velocity = velocity;
   this.colour = colour;
+  this.scale = scale;
 }
 
 function fixedMass(mass, position) {
@@ -86,14 +100,14 @@ function drawParticles() {
   particles.forEach(function (particle) {
     ctx.fillStyle = particle.colour;
     ctx.beginPath();
-    ctx.fillRect(particle.position.x,particle.position.y,1,1);
+    ctx.fillRect(particle.position.x,particle.position.y,particle.scale,particle.scale);
     ctx.stroke();
   });
 }
 
 function drawOrigins() {
   origins.forEach(function (origin) {
-    ctx.fillStyle = '#19FFSA';
+    ctx.fillStyle = '#000000';
     ctx.beginPath();
     ctx.arc(origin.position.x,origin.position.y,1,0,2*Math.PI);
     ctx.fill();
@@ -113,10 +127,11 @@ function drawFixedMasses() {
 function newParticle(origin) {
   var mass = origin.mass;
   var position = new Vector(origin.position.x, origin.position.y);
-  var velocity = new Vector(origin.velocity.x, origin.velocity.y + (Math.random() * ((0.5) - (-0.5)) + -(0.5)));
+  var velocity = new Vector(origin.velocity.x, origin.velocity.y + Math.random() * ((0.3) - (-0.3)) + (-0.3));
   var acceleration = new Vector(0, 0);
   var colour = origin.colour;
-  var tempParticle = new particle(mass, position, velocity, acceleration, colour);
+  var scale = origin.scale;
+  var tempParticle = new particle(mass, position, velocity, acceleration, colour, scale);
   particles.push(tempParticle);
 };
 
@@ -160,20 +175,26 @@ function clear() {
 function render() {
   var nowDate = new Date();
   var milliNow = nowDate.getMilliseconds();
+  var tenthNow = nowDate.getMilliseconds();
   var secNow = nowDate.getSeconds();
   var minNow = nowDate.getMinutes();
-  console.log(milliNow / 1000, milliPrev/ 1000)
-  if (Math.round(milliNow / 10) !== Math.round(milliPrev / 10)) {
+  if ((Math.floor(milliNow / 10) !== Math.floor(milliPrev / 10)) && particleCount < 7500) {
     newParticle(origins[0]);
     milliPrev = milliNow;
+    particleCount++;
   }
-  if (Math.round(secNow) !== Math.round(secPrev)) {
+  if (Math.floor(tenthNow / 100) !== Math.floor(tenthPrev / 100)) {
     newParticle(origins[1]);
-    secPrev = secNow;
+    tenthPrev = tenthNow;
   }
-  if (Math.round(minNow) !== Math.round(minPrev)) {
+  if (Math.floor(secNow) !== Math.floor(secPrev)) {
     newParticle(origins[2]);
-    minPrev = minNow;
+    secPrev = secNow;
+    minCount = ((minCount + 1) % 61);
+  }
+  if (minCount === 0){
+    newParticle(origins[3]);
+    minCount++
   }
   drawParticles();
   drawOrigins();
@@ -193,7 +214,8 @@ function run() {
 
 var currentdate = new Date();
 var milliPrev = currentdate.getMilliseconds();
+var tenthPrev = currentdate.getMilliseconds();
 var secPrev = currentdate.getSeconds();
-var minPrev = currentdate.getMinutes();
-
+var minCount = 1;
+var particleCount = 0;
 run();
