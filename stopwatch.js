@@ -48,6 +48,16 @@ resetTime: function(value){
 }
 };
 
+//////////////////////
+
+function start() {
+  if (paused !== 1) {
+    var startTime = new Date();
+  }
+  paused = 0;
+  var intervalLoop = setInterval(run,10);
+}
+
 ///////////////////
 
 function run() {
@@ -63,15 +73,6 @@ function run() {
   return increment;
 }
 
-//////////////////////
-
-function start() {
-  if (paused !== 1) {
-    var startTime = new Date();
-  }
-  paused = 0;
-  var intervalLoop = setInterval(run,10);
-}
 
 ///////////////////
 

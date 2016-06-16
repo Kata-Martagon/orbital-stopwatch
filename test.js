@@ -1,4 +1,6 @@
 
+///test begining of function///
+
 test( 'if it hasnt started working it will display 0 for all the values', function(assert) {
   var actual = increment;
   var expected = 0;
@@ -17,20 +19,14 @@ test( 'if it hasnt started working it will display 0 for all the values', functi
 //   assert.equal(actual, expected, 'start called run function');
 // });
 
+///test Reset ///
+
 test( 'Reset resets run to 0', function(assert) {
   reset();
   var actual = increment;
   var expected = 0;
   assert.equal(actual, expected, 'reset, reset to 0');
 });
-
-
-// 
-// test( 'start button called start with a click', function(assert) {
-//   document.getElementById("start").click();
-//   var actual = increment > 0;
-//   assert.ok(actual, 'start button works');
-// });
 
 test( 'reset button called reset with a click', function(assert) {
   document.getElementById("reset").click();
@@ -39,7 +35,14 @@ test( 'reset button called reset with a click', function(assert) {
   assert.equal(actual, expected, 'reset button works');
 });
 
+//
+// test( 'start button called start with a click', function(assert) {
+//   document.getElementById("start").click();
+//   var actual = increment > 0;
+//   assert.ok(actual, 'start button works');
+// });
 
+///start is different than increment///
 
 test( 'function setTimeout is called after other tests', function(assert) {
 var dummy = true;
@@ -59,6 +62,8 @@ var dummy = true;
 });
 
 reset();
+
+////testing pause/////
 
 test( 'function setTimeout is called after other tests', function(assert) {
 var dummy = true;
@@ -83,6 +88,8 @@ function runTest() {
 
 assert.ok(dummy, 'called after other tests');
 });
+
+//////display time///////
 
 test( 'if running displays as time - hours, minutes, seconds, milliseconds', function(assert) {
   var actual = increment;
