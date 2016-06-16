@@ -1,16 +1,15 @@
 
 
-// stopwatch looks //
+//stopwatch looks //
+//
+// var c = document.getElementById("stopwatch");
+// var ctx = c.getContext('2d');
+// ctx.font = "30px Arial";
+// ctx.fillStyle = "yellow";
+//   ctx.clearRect(0, 0, c.width, c.height);
+// ctx.fillText(objTime.time, 10, 50);
 
-var c = document.getElementById("stopwatch");
-var ctx = c.getContext('2d');
-ctx.font = "30px Arial";
-ctx.fillStyle = "yellow";
 
-function displayWatch() {
-  ctx.clearRect(0, 0, c.width, c.height);
-ctx.fillText(objTime.time, 10, 50);
-}
 
 
 
@@ -90,7 +89,15 @@ function reset(){
   displayWatch();
 }
 
-///////////////////
+//////////display watch/////////
+
+function displayWatch() {
+
+  var c = document.getElementById("stopwatch");
+  var clock = document.getElementById("updateDisplay").innerHTML = objTime.time;
+
+}
+ ///////////////////////
 
 document.getElementById("start").addEventListener("click", function() {
   start();
