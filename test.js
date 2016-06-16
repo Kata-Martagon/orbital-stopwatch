@@ -80,6 +80,7 @@ function runTest() {
   function testPause () {
     test( 'pause button stops it from incrementing', function(assert) {
       var actual = increment;
+      reset();
       assert.equal(actual, expected, 'actual is the same as expected, meaning it stopped');
     });
   };

@@ -204,6 +204,7 @@ function render() {
       minCount++
     }
   }
+
   drawParticles();
   drawOrigins();
   drawFixedMasses();

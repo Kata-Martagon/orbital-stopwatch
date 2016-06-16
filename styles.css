@@ -3,8 +3,33 @@ body {
   font-family: 'Orbitron', sans-serif;
   color: white;
 }
+/*
 
-.buttons #start, #pause, #reset{
+[class*='col-'] {
+  float: left;
+  padding: 10px;
+
+}*/
+.col-1-3  {
+  width: 100%;
+
+}
+
+/*[class*='col-']:last-of-type {
+  /*padding-right: 10px;*/
+  /*float: right;
+}*/
+.buttons {
+  width: 100%;
+  /*font-size: 0;*/
+}
+
+.buttons > button {
+  width: 33.3%!important;
+}
+
+.buttons #start, .buttons #pause, .buttons #reset{
+  margin: 0;
   font-size: 1vw;
   color: white;
    background-color: black;
@@ -12,6 +37,17 @@ body {
    height:50px;
    width:460px;
    cursor:pointer;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.wrapper > div > div {
+  width: 100%;
+  margin: auto;
 }
 
 
@@ -22,7 +58,7 @@ body {
   right: 20px;
   top: 15px;
   background-color: black;
-  border-color: white;
+  border-color: black;
   padding: 7 0 7 7;
   width: 58px;
   height:58px;
@@ -43,21 +79,14 @@ text-decoration: none;
 }
 
 
-
-
 #updateDisplay {
   width: 120px;
   height: 800px;
-  font-size: 20vw;
+  font-size: 19vw;
   line-height: 820px;
   color: white;
   display: inline-block;
-  0%{
--webkit-transform: scale(1.2,3); /* Safari and Chrome */
--moz-transform:scale(1.2,3); /* Firefox */
--ms-transform:scale(1.2,3); /* IE 9+ */
--o-transform:scale(1.2,3); /* Opera */
-}
+  margin: auto;
 }
 
 /*.tests {
