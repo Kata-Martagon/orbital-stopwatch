@@ -44,12 +44,19 @@ var objTime = {
    this.time = this.hours + ':' + this.minutes + ':' + this.seconds + ':' + this.hundredths;
 },
 resetTime: function(value){
-  this.hundredths = value;
-  this.seconds = value;
-  this.minutes = value;
-  this.hours = value;
+  this.updateDisplay(value);
 }
 };
+
+//////////////////////
+
+function start() {
+  if (paused !== 1) {
+    var startTime = new Date();
+  }
+  paused = 0;
+  var intervalLoop = setInterval(run,10);
+}
 
 ///////////////////
 
@@ -66,15 +73,6 @@ function run() {
   return increment;
 }
 
-//////////////////////
-
-function start() {
-  if (paused !== 1) {
-    var startTime = new Date();
-  }
-  paused = 0;
-  var intervalLoop = setInterval(run,10);
-}
 
 ///////////////////
 
