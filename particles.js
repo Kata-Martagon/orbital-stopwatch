@@ -3,15 +3,15 @@
 var c = document.getElementById("physics");
 var ctx = c.getContext("2d");
 
-c.width = window.innerWidth;
-c.height = window.innerHeight;
+c.width = screen.width;
+c.height = screen.height;
 
 var particles = [];
 var origins = [];
 var fixedMasses = [];
 var midX = c.width / 2;
 var midY = c.height / 2;
-var totalParticles = 0
+var totalParticles = 0;
 
 // Create Origins
 

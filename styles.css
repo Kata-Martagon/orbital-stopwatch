@@ -7,7 +7,6 @@ body {
 .buttons #start, #pause, #reset{
   font-size: 1vw;
   color: white;
-  		cborder: 1px outset blue;
    background-color: black;
    border-color: white;
    height:50px;
@@ -16,10 +15,40 @@ body {
 }
 
 
+#changeViewButton {
+  position: fixed;
+  font-size: 50px;
+  z-index: 500;
+  right: 20px;
+  top: 15px;
+  background-color: black;
+  border-color: white;
+  padding: 7 0 7 7;
+  width: 58px;
+  height:58px;
+  line-height: 27px;
+
+}
+
+#link:hover {
+text-decoration: none;
+}
+
+#link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 40px;
+  text-align: center;
+}
+
+
+
+
 #updateDisplay {
   width: 120px;
   height: 800px;
-  font-size: 20.5vw;
+  font-size: 20vw;
   line-height: 820px;
   color: white;
   display: inline-block;
