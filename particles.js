@@ -150,10 +150,8 @@ function createSpread(velocity, spread) {
 
 function newParticle(origin) {
   var velocity = createSpread(origin.velocity, origin.spread);
-  var spread = origin.spread;
   var mass = origin.mass;
   var position = new Vector(origin.position.x, origin.position.y);
-  var velocity = new Vector(velocity.x, velocity.y);
   var acceleration = new Vector(0, 0);
   var colour = origin.colour;
   var scale = origin.scale;
