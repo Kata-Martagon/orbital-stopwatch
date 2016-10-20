@@ -1,4 +1,4 @@
-# Stopwatch-NogaMatt
+# Orbital Stopwatch
 
 ## What?
 A gravitational physics model with particles orbiting a centre star representing the passing of time.
