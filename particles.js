@@ -59,14 +59,14 @@ function setOrigins() {
   origins.push(tempOrigin);
 }
 
-// Create Fixed Masses
+// Create Masses
 
   var mass = 10000000000;
   var position = new Vector(midX, midY)
   var tempFixedMass = new fixedMass(mass, position);
   fixedMasses.push(tempFixedMass);
 
-// Define objects
+
 
 function particle(mass, position, velocity, acceleration, colour, scale) {
   this.mass = mass;
@@ -75,6 +75,16 @@ function particle(mass, position, velocity, acceleration, colour, scale) {
   this.acceleration = acceleration;
   this.colour = colour;
   this.scale = scale;
+}
+
+function Vector(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Vector.prototype.add = function(vector) {
+  this.x += vector.x;
+  this.y += vector.y;
 }
 
 function origin(mass, position, velocity, colour, scale, spread) {
@@ -90,20 +100,6 @@ function fixedMass(mass, position) {
   this.mass = mass;
   this.position = position;
 }
-
-// Create Vector Object and define methods
-
-function Vector(x, y) {
-  this.x = x;
-  this.y = y;
-}
-
-Vector.prototype.add = function(vector) {
-  this.x += vector.x;
-  this.y += vector.y;
-}
-
-// Draw elements functions
 
 function drawParticles() {
   particles.forEach(function (particle) {
@@ -132,8 +128,6 @@ function drawFixedMasses() {
   });
 }
 
-// Origin spread calculation
-
 function createSpread(velocity, spread) {
   var magnitude = Math.sqrt(Math.pow(velocity.x, 2) + Math.pow(velocity.y, 2));
   var angle = Math.atan(velocity.y / velocity.x);
@@ -146,10 +140,11 @@ function createSpread(velocity, spread) {
   return newVelocity;
 }
 
-// Create new particle from origin
-
+//CREATE OBJECTS - REDUCE DOWN TO FOREACH OR SOMETHING
 function newParticle(origin) {
   var velocity = createSpread(origin.velocity, origin.spread);
+  // var ySpread = Math.pow( -1, Math.ceil(Math.random() * 2)) * (magnitude * (Math.random() * origin.spread) / (2 * Math.PI))
+  // var xSpread = Math.pow( -1, Math.ceil(Math.random() * 2)) * Math.sqrt(Math.pow(magnitude, 2) - Math.pow(ySpread, 2));
   var spread = origin.spread;
   var mass = origin.mass;
   var position = new Vector(origin.position.x, origin.position.y);
@@ -161,7 +156,8 @@ function newParticle(origin) {
   particles.push(tempParticle);
 };
 
-// Gravity Effects Functions
+
+////////////////////////////////////
 
 function runParticles(particles,fixedMasses) {
   particles.forEach(function(particle) {
@@ -169,15 +165,14 @@ function runParticles(particles,fixedMasses) {
   })
 }
 
-//Calculate Position Change
+//Calculate Particle Move Necessary
 
 function calculateChangeOfPosition(particle, fixedMasses) {
   calculateVelocity(particle, fixedMasses);
   particle.position.x += particle.velocity.x;
   particle.position.y += particle.velocity.y;
+  // console.log(particle.position);
 }
-
-// Caculate Velocity Change
 
 function calculateVelocity(particle, fixedMasses) {
 
@@ -193,8 +188,6 @@ function calculateVelocity(particle, fixedMasses) {
     particle.velocity.y -= ratioAccel.y;
   })
 }
-
-// Main Loop Functions
 
 function clear() {
   ctx.clearRect(0, 0, c.width, c.height);
@@ -226,7 +219,7 @@ function setup() {
       minCount = ((minCount + 1) % 61);
     }
   }
-  if (minCount === 0){
+  if (minCount === 1){
     if (pause === 0) {
       newParticle(origins[3]);
       minCount++
@@ -245,8 +238,6 @@ function queue() {
   window.requestAnimationFrame(run);
 }
 
-// Main Loop
-
 function run() {
   clear();
   setup();
@@ -254,20 +245,16 @@ function run() {
   queue();
 };
 
-// Define Initial Condition variables
-
 var currentdate = new Date();
 var milliPrev = currentdate.getMilliseconds();
 var tenthPrev = currentdate.getMilliseconds();
 var secPrev = currentdate.getSeconds();
-var minCount = 1;
+var minCount = 2;
 var particleCount = 0;
 
 var pause = 0;
 
 run();
-
-// Pause function
 
 document.body.addEventListener('click', function() {
   if (pause === 0) {
