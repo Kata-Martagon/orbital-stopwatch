@@ -6,7 +6,7 @@ Particles are coloured based on the fraction of time they represent.
 - blue: hundredths, 
 - green: tenths,
 - yellow: seconds,
-- purple; minutes
+- purple: minutes
 
 ## Why?
 Initially conceived as TDD project that was finished ahead of schedule.
