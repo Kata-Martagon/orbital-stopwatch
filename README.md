@@ -1,21 +1,21 @@
 # Stopwatch-NogaMatt
 
 ## What?
-Create a stopwatch that shows hours, minutes, seconds, 100ths of seconds.
+A gravitational physics model with particles orbiting a centre star representing the passing of time.
+Particles are coloured based on the fraction of time they represent.
+- blue: hundredths, 
+- green: tenths,
+- yellow: seconds,
+- purple; minutes
 
 ## Why?
-We would like to experiment with different ways of representing passing time.
+Initially conceived as TDD project that was finished ahead of schedule.
+A canvas and physics model experiment
 
 ## How?
-Using TDD ping pong we will methodiclly develop a functioning stopwatch. We can also use the test to check refactoring.
+Using canvas and an object based gravity model.
+Parameters can easily be altered to represent different states.
 
-## Stretch Goals
-- Visual representation as sand timer/particle effect.
-- Countdown Timer
-- Look into p5.js - visual processing library.
-- Emit particle for hundredths, seconds, minutesD
-- Different colours for different particle emission frequencies
-- Particle counter
-- change colors of stopwatch random RGB
-- Rotating Origin
+## Limitations
+This model doesn't take advantage of parallel processing through WebGL so the browser can be quickly overwhelmed.
 
