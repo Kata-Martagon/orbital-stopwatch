@@ -1,5 +1,9 @@
 # Orbital Stopwatch
 
+## How to use
+
+Click to pause and resume
+
 ## What?
 A gravitational physics model with particles orbiting a centre star representing the passing of time.
 Particles are coloured based on the fraction of time they represent.
