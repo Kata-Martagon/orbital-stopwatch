@@ -249,7 +249,7 @@ var currentdate = new Date();
 var milliPrev = currentdate.getMilliseconds();
 var tenthPrev = currentdate.getMilliseconds();
 var secPrev = currentdate.getSeconds();
-var minCount = 1;
+var minCount = 2;
 var particleCount = 0;
 
 var pause = 0;
